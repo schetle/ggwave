@@ -223,5 +223,5 @@ sudo snap connect waver:audio-record :audio-record
   ```
 
 [changelog]: ./CHANGELOG.md
-[changelog-badge]: https://img.shields.io/badge/changelog-ggwave%20v0.4.2-dummy
+[changelog-badge]: https://img.shields.io/badge/changelog-ggwave%20v@PROJECT_VERSION@-dummy
 [license]: ./LICENSE

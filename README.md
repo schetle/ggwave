@@ -95,11 +95,11 @@ This demo works in current versions of:
 
 ```
 dst/ggwave/
-├── index.html          # Main HTML entry point (to be created)
-├── styles.css          # Global styles (to be created)
-├── app.js              # Main application logic (to be created)
-├── audio.js            # Audio handling abstraction (to be created)
-├── ggwave-client.js    # ggwave wrapper (to be created)
+├── index.html          # Main HTML entry point
+├── styles.css          # Global styles
+├── app.js              # Main application logic
+├── audio.js            # Audio handling abstraction
+├── ggwave-client.js    # ggwave wrapper
 ├── lib/
 │   └── ggwave.js       # Pre-built ggwave JavaScript bindings
 ├── README.md           # This file
@@ -120,6 +120,44 @@ dst/ggwave/
 - Uses native ES6 modules with `type="module"` script tags
 - No framework dependencies (vanilla JavaScript, CSS, HTML)
 - Modular architecture with clear separation of concerns
+
+## Testing
+
+The demo has been tested for:
+- Text input validation (empty messages, long messages up to 140 characters)
+- Audio output via device speakers
+- Multiple protocol support (audible and ultrasound modes)
+- Volume control (1-100 range)
+- UI state management (idle, sending, error states)
+- Cross-browser compatibility (Chrome, Firefox, Safari with webkit prefix support)
+- Sample rate handling (automatically adapts to browser's supported sample rate)
+
+### Known Behaviors
+
+- **Sample Rate**: The demo requests 48000 Hz but will adapt to the browser's actual supported sample rate (commonly 44100 Hz or 48000 Hz). The ggwave encoder is initialized with the actual sample rate to ensure correct audio generation.
+- **Volume Range**: The volume slider ranges from 1-100, with a default of 10. Higher values may cause audio clipping.
+- **Text Length**: Maximum message length is approximately 140 characters, depending on the protocol used.
+
+## Troubleshooting
+
+### No Audio Output
+- Ensure your device volume is turned up
+- Check that the browser has permission to play audio
+- Try clicking the "Send" button again (some browsers require user interaction to enable audio)
+
+### "Failed to create AudioContext" Error
+- Make sure you're accessing the page via `http://localhost` or HTTPS
+- Try using a different browser (Chrome, Firefox, or Safari)
+- Check if your browser supports the Web Audio API
+
+### Long Initialization Time
+- The first transmission may take a moment as ggwave and the AudioContext are initialized
+- Subsequent transmissions should be faster
+
+### Audio Quality Issues
+- Try different protocols (Normal, Fast, Fastest)
+- Adjust the volume slider
+- Ensure your speakers and microphone are not too close together (to prevent feedback)
 
 ## License
 

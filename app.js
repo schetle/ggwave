@@ -10,7 +10,7 @@
  */
 
 import { initGgwave, encode, isInitialized } from './ggwave-client.js';
-import { playSamples } from './audio.js';
+import { playSamples, getAudioContext, initAudioContext } from './audio.js';
 
 /**
  * Centralized configuration object for the application
@@ -123,11 +123,13 @@ async function handleSend() {
         // This ensures we have a user gesture for AudioContext creation
         if (!isInitialized()) {
             updateStatus('Initializing...');
+            // Initialize AudioContext first to determine the actual sample rate
+            const context = initAudioContext(CONFIG.audio.sampleRate);
             await initGgwave({
-                sampleRate: CONFIG.audio.sampleRate,
+                sampleRate: context.sampleRate,
                 operatingMode: CONFIG.ggwave.operatingMode,
             });
-            console.log('ggwave initialized on first send');
+            console.log(`ggwave initialized with sample rate: ${context.sampleRate} Hz`);
         }
 
         // Update UI state

@@ -25,7 +25,7 @@ function convertTypedArray(src, type) {
  * @returns {AudioContext} The initialized AudioContext
  * @throws {Error} If AudioContext creation fails
  */
-function initAudioContext(sampleRate = 48000) {
+export function initAudioContext(sampleRate = 48000) {
     if (audioContext) {
         return audioContext;
     }
@@ -51,6 +51,7 @@ function initAudioContext(sampleRate = 48000) {
  *
  * @param {Int8Array|Float32Array|Array} samples - PCM audio samples to play
  * @param {number} sampleRate - Sample rate in Hz (default: 48000)
+ * @returns {AudioContext} The AudioContext instance used for playback
  * @throws {Error} If samples are invalid or playback fails
  */
 export function playSamples(samples, sampleRate = 48000) {
@@ -92,6 +93,8 @@ export function playSamples(samples, sampleRate = 48000) {
 
         // Start playback immediately
         source.start(0);
+
+        return context;
 
     } catch (error) {
         throw new Error(`Audio playback failed: ${error.message}`);

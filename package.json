@@ -1,0 +1,25 @@
+{
+  "name": "ggwave-web-demo",
+  "version": "1.0.0",
+  "description": "Modern web-based demonstration of text-over-sound communication using ggwave",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "preview": "vite preview",
+    "serve": "npx http-server -p 8000"
+  },
+  "keywords": [
+    "ggwave",
+    "data-over-sound",
+    "web-audio",
+    "ultrasound",
+    "fsk",
+    "demo"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "vite": "^5.0.0"
+  }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ggwave - Text Over Sound Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="main-container">
+        <header>
+            <h1>ggwave</h1>
+            <p class="subtitle">Text-over-sound communication using Web Audio API</p>
+        </header>
+
+        <section class="instructions">
+            <p>Open this page on multiple devices. Enter text below, select a protocol, and click "Send" to transmit via audio.</p>
+        </section>
+
+        <section class="controls-section">
+            <div class="control-group">
+                <label for="txData">Message to Send:</label>
+                <textarea id="txData" rows="4" placeholder="Enter your message here...">Hello ggwave!</textarea>
+            </div>
+
+            <div class="control-row">
+                <div class="control-group">
+                    <label for="protocol">Protocol:</label>
+                    <select id="protocol">
+                        <option value="0">Normal</option>
+                        <option value="1" selected>Fast</option>
+                        <option value="2">Fastest</option>
+                        <option value="3">[Ultrasound] Normal</option>
+                        <option value="4">[Ultrasound] Fast</option>
+                        <option value="5">[Ultrasound] Fastest</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="volume">Volume:</label>
+                    <div class="volume-control">
+                        <input type="range" id="volume" min="1" max="100" value="10">
+                        <span id="volumeValue">10</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="sendBtn" class="primary-btn">Send</button>
+            </div>
+        </section>
+
+        <section class="status-section">
+            <div class="status-display">
+                <span class="status-label">Status:</span>
+                <span id="statusText" class="status-text">Idle</span>
+            </div>
+
+            <div id="errorMessage" class="error-message" hidden>
+                <span class="error-icon">⚠</span>
+                <span id="errorText"></span>
+            </div>
+        </section>
+
+        <footer class="app-footer">
+            <p>
+                <a href="https://github.com/ggerganov/ggwave" target="_blank" rel="noopener noreferrer">
+                    View on GitHub
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="lib/ggwave.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

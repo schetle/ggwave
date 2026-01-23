@@ -1,0 +1,61 @@
+# Build directories
+build/
+bin/
+lib/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+Makefile
+
+# Compiled Object files
+*.o
+*.obj
+*.ko
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.a
+*.lib
+*.la
+*.lo
+
+# Executables
+*.exe
+*.out
+*.app
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# Test outputs
+Testing/
+CTestTestfile.cmake
+
+# Generated files from CMake configure_file()
+README.md
+bindings/python/setup.py
+bindings/javascript/package.json
+bindings/ios/Makefile
+
+# CPack generated files
+CPackConfig.cmake
+CPackSourceConfig.cmake
